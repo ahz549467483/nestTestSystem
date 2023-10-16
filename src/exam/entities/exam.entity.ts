@@ -45,6 +45,9 @@ export class Exam {
 	@Column('simple-enum', { enum: [0, 1] })
 	deleted: number;
 
+	@Column({ name: 'questions_id' })
+	question_ids: string;
+
 	@ManyToOne(() => User, (user) => user.exams)
 	@JoinColumn({
 		name: 'create_user',

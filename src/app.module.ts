@@ -13,25 +13,33 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExamModule } from './exam/exam.module';
 import { QuestionsModule } from './questions/questions.module';
 import { RoleModule } from './role/role.module';
+import { ContentModule } from './content/content.module';
+import { TesterModule } from './tester/tester.module';
+import { AnswerModule } from './answer/answer.module';
+import { AnswerQustionsModule } from './answer-qustions/answer-qustions.module';
 
 @Module({
 	imports: [
 		TypeOrmModule.forRoot({
-            type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            username: 'root',
-            password: '549467', // 办公室
-            database: 'blog',
-            entities: [__dirname + '/**/*.entity{.ts,.js}'],
-            synchronize: true,
-        }),
+			type: 'mysql',
+			host: 'localhost',
+			port: 3306,
+			username: 'root',
+			password: '549467', // 办公室
+			database: 'blog',
+			entities: [__dirname + '/**/*.entity{.ts,.js}'],
+			synchronize: true,
+		}),
 		UserModule,
-        AuthModule,
-        ExamModule,
-        QuestionsModule,
-        RoleModule
-    ],
+		AuthModule,
+		ExamModule,
+		QuestionsModule,
+		RoleModule,
+		ContentModule,
+		TesterModule,
+		AnswerModule,
+		AnswerQustionsModule,
+	],
 	controllers: [AppController],
 	providers: [AppService],
 })

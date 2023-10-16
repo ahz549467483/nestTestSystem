@@ -33,16 +33,19 @@ export class QuestionsController {
 		return this.questionsService.create(createQuestionDto);
 	}
 
+	@ApiOperation({ summary: '获取题目列表' })
 	@Get()
 	findAll(@Body() query) {
 		return this.questionsService.findAll(query);
 	}
 
+	@ApiOperation({ summary: '根据id查找题目' })
 	@Get(':id')
 	findOne(@Param('id') id: string) {
 		return this.questionsService.findOne(+id);
 	}
 
+	@ApiOperation({ summary: '根据id更新题目' })
 	@Patch(':id')
 	update(
 		@Param('id') id: string,
@@ -51,6 +54,7 @@ export class QuestionsController {
 		return this.questionsService.update(+id, updateQuestionDto);
 	}
 
+	@ApiOperation({ summary: '根据id删除题目' })
 	@Delete(':id')
 	remove(@Param('id') id: string) {
 		return this.questionsService.remove(+id);
